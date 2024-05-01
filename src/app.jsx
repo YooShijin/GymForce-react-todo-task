@@ -3,6 +3,7 @@ import { TodoForm } from "./components/todo-form";
 import { TodoList } from "./components/todo-list";
 import { TodoResults } from "./components/todo-results";
 import "./index.scss";
+import ResponsiveNavBar from "./components/navbar/nanbar";
 
 const todosTemplate = [
   {
@@ -52,10 +53,13 @@ export const App = () => {
   }, [todos]);
 
   return (
-    <div className="app">
-      <TodoList todos={todos} setTodos={setTodos} />
-      <TodoResults todos={todos} setTodos={setTodos} />
-      <TodoForm todos={todos} setTodos={setTodos} />
-    </div>
+    <>
+      <ResponsiveNavBar></ResponsiveNavBar>
+      <div className="app">
+        <TodoList todos={todos} setTodos={setTodos} />
+        <TodoResults todos={todos} setTodos={setTodos} />
+        <TodoForm todos={todos} setTodos={setTodos} />
+      </div>
+    </>
   );
 };
