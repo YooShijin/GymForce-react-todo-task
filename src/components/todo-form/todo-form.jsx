@@ -36,7 +36,7 @@ export const TodoForm = (props) => {
   };
 
   return (
-    <>
+    <div className="container">
       <div className="todo-form">
         <input
           placeholder="Enter new task"
@@ -54,10 +54,14 @@ export const TodoForm = (props) => {
       </button> */}
       </div>
       {showAlert && (
-        <Alert variant="filled" severity="success">
+        <Alert
+          variant="filled"
+          severity="success"
+          sx={{ width: "61%", margin: "auto" }}
+        >
           Task added successfully!
         </Alert>
       )}
-    </>
+    </div>
   );
 };

@@ -53,13 +53,13 @@ export const App = () => {
   }, [todos]);
 
   return (
-    <>
+    <div className="container">
       <ResponsiveNavBar></ResponsiveNavBar>
       <div className="app">
         <TodoList todos={todos} setTodos={setTodos} />
         <TodoResults todos={todos} setTodos={setTodos} />
         <TodoForm todos={todos} setTodos={setTodos} />
       </div>
-    </>
+    </div>
   );
 };
