@@ -1,15 +1,29 @@
 import * as React from "react";
 import { Checkbox } from "../checkbox";
 import "./todo-list.scss";
+import Alert from "@mui/material/Alert";
 
 export const TodoList = (props) => {
   const { todos, setTodos } = props;
+  const [isalert, setIsAlert] = React.useState(false);
+
+  // Function to show the alert for one second
+  const showAlertForOneSecond = () => {
+    setIsAlert(true);
+
+    // Hide the alert after one second
+    setTimeout(() => {
+      setIsAlert(false);
+    }, 1000); // 1000 milliseconds = 1 second
+  };
 
   const handleDelete = (id) => {
     // Function to delete task
     setTodos((prev) => {
       return prev.filter((el) => el.id !== id);
     });
+
+    showAlertForOneSecond();
   };
 
   const toggleCheck = (id) => {
@@ -32,6 +46,15 @@ export const TodoList = (props) => {
 
   return (
     <div className="todo-list">
+      {isalert && (
+        <Alert
+          variant="filled"
+          severity="error"
+          sx={{ width: "61%", margin: "auto" }}
+        >
+          Task Deleted Succesfully!
+        </Alert>
+      )}
       <span className="todo-list-title">Things to do:</span>
       {todos.length ? (
         <div className="todo-list-content">
